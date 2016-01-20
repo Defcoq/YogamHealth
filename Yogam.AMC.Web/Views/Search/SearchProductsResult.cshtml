@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Yogam.AMC.Data.Models.Product>
+@{
+    ViewBag.Title = "Product Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="page-header">
+        <h1>Product Results <small>Results for your search term: "@ViewBag.SearchQuery"</small></h1>
+    </div>
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("Edit","Products", new { id=@item.ProductID})" class="list-group-item">@item.ProductName <span class="badge">@item.UnitsInStock</span></a>
+        }
+    </ul>
+</div>

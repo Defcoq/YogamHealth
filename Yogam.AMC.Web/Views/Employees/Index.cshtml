@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Yogam.AMC.Web.Models.EmployeeViewModel>
+
+@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <div class="page-header">
+        <h1>Employees <small>Add, edit and delete employees</small></h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Manage", "Index", "Manage")</li>
+        <li class="active">Employees</li>
+    </ol>
+
+    <div class="panel panel-danger">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Our Employees Table in a panel <span class="badge">@Model.Count()</span></div>
+        <div class="panel-body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec congue, orci porttitor aliquet hendrerit, purus lorem sollicitudin nisl, eu tristique enim dolor quis tortor.
+                Donec magna libero, imperdiet quis mi quis, porttitor rutrum sapien. Vivamus nec dolor turpis.
+            </p>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.LastName, "Edit", new { id = item.EmployeeID })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            <span class="label label-warning">@Html.DisplayFor(modelItem => item.Title)</span>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <a href="@Url.Action("Create","Employees")" class="btn btn-sm btn-primary" role="button">Create New</a>
+    </p>
+  
+</div>

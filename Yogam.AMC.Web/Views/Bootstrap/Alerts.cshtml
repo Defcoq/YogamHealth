@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Bootstrap Alerts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="page-header">
+        <h1>Alerts </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>Bootstrap</li>
+        <li class="active">Alerts</li>
+    </ol>
+
+    <div class="alert alert-success"><strong>Success. You have successfully saved the file.</strong></div>
+    <div class="alert alert-info"><strong>Info. Something has just happened.</strong></div>
+    <div class="alert alert-warning"><strong>Warning! The file size is too big.</strong></div>
+    <div class="alert alert-danger"><strong>Danger! The file could not be saved.</strong></div>
+
+</div>

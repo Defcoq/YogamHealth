@@ -1,0 +1,234 @@
+﻿@model Yogam.AMC.Web.Models.RegisterViewModel2
+@using Yogam.AMC.Data.Models;
+@{
+    ViewBag.Title = "Enregistrement Etape 2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var gender = TempData["Gender"];
+    var birthDate = Model != null ? Model.DateOfBirth : null;
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Info d'accès
+            </a>
+        </li>
+        <li class="active">
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Contact Personel
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i> Info identité
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Résumé
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Notre centre d’intérêt c’est vos soins hospitaliers</strong>
+
+        Notre centre d’intérêt c’est vos soins hospitaliers
+
+        Inscrivez-vous pour obtenir votre carte de membre Yogam
+
+        Juste deux étapes et quelques instants pour vous inscrire et obtenir votre carte de membre Yogam provisoire.
+
+
+        Une fois inscrit, vous aurez accès à vos informations de membre, aux réductions exclusives réservées aux membres et plus tard aux informations concernant votre santé.
+    </div>
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("RegisterStep2", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+       
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Pays</label>
+            </div>
+          
+            <div class="col-md-10">
+                <input type="hidden" id="CountryCode" />
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control", @data_provide = "typeahead", @placeholder = "Insert Country here", @autocomplete = "off" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Region</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control", @data_provide = "typeahead", @placeholder = "Type state here", @autocomplete = "off" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Sexe</label>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.Gender, new SelectList(Enum.GetNames(typeof(Gender))))
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Nom</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Fistname, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Prénom</label>
+                
+            </div>
+            <div  class="col-md-10">
+                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
+            </div>
+        </div>
+       
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Nom de jeune fille (facultatif)</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Date de naissance (facultatif)</label>
+            </div>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @Value = birthDate, @class = "form-control", @style = "width:300px" }, })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Numero de telephone (facultatif)</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="BtnPrevious" value="Precedent" class="btn btn-default" />
+                <input type="submit" name="BtnNext" value="Suivant" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/bootstrap3-typeahead.min.js"></script>
+
+    <script type="text/javascript">
+
+  $(function () {
+
+      $('#DateOfBirth').datetimepicker({
+
+
+       defaultDate: '@birthDate',
+
+          format: 'DD-MM-YYYY',
+
+      showClose: true,
+
+      showClear: true,
+
+      toolbarPlacement: 'top'
+
+
+    });
+
+      $('#DateOfBirth').removeAttr("data-val-date");
+
+      //typehead
+      $("#Country").typeahead({
+          source: function (query, process) {
+              console.log("Query  " + query);
+              var countries = [];
+              map = {};
+
+              // This is going to make an HTTP post request to the controller
+              return $.post('/Account/CountryLookup', { query: query }, function (data) {
+
+                  // Loop through and push to the array
+                  $.each(data, function (i, country) {
+                      map[country.CountryName] = country;
+                      countries.push(country.CountryName);
+
+                  });
+
+                  // Process the details
+                  process(countries);
+              });
+          },
+          updater: function (item) {
+              var selectedShortCode = map[item].CountryCode;
+              console.log("Country code select " + selectedShortCode);
+              // Set the text to our selected id
+              // $("#details").text("Selected : " + selectedShortCode);
+              $("#CountryCode").val(selectedShortCode);
+              return item;
+          }
+      });
+
+
+      $("#State").typeahead({
+          source: function (query, process) {
+              var countries = [];
+              map = {};
+              var country = $("#CountryCode").val();
+              console.log("Country code select " + country);
+              // This is going to make an HTTP post request to the controller
+              return $.post('/Account/CountryStateLookup?country=' + country, { query: query }, function (data) {
+
+                  // Loop through and push to the array
+                  $.each(data, function (i, country) {
+                      map[country.CountryName] = country;
+                      countries.push(country.CountryName);
+
+                  });
+
+                  // Process the details
+                  process(countries);
+              });
+          },
+          updater: function (item) {
+              var selectedShortCode = map[item].CountryCode;
+              // alert("state " + selectedShortCode);
+              // Set the text to our selected id
+              // $("#details").text("Selected : " + selectedShortCode);
+              // $("CountryCode").val(selectedShortCode);
+              return item;
+          }
+      });
+
+      //end typeahead
+
+  });
+
+    </script>
+
+
+}

@@ -1,0 +1,104 @@
+﻿@using Yogam.AMC.Data.Models;
+@model Yogam.AMC.Web.Models.RegisterViewModel3
+@{
+    ViewBag.Title = "Enregistrement Etape 3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Info d'accès
+            </a>
+        </li>
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Contact Personel
+            </a>
+        </li>
+        <li class="active">
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i> Info identité
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Résumé
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Notre centre d’intérêt c’est vos soins hospitaliers</strong>
+
+        Notre centre d’intérêt c’est vos soins hospitaliers
+
+        Inscrivez-vous pour obtenir votre carte de membre Yogam
+
+        Juste deux étapes et quelques instants pour vous inscrire et obtenir votre carte de membre Yogam provisoire.
+
+
+        Une fois inscrit, vous aurez accès à vos informations de membre, aux réductions exclusives réservées aux membres et plus tard aux informations concernant votre santé.
+    </div>
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("RegisterStep3", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+    
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Quelle est votre ville de naissance?</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Quelle est votre nationalité?</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Nationality, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Ou habitez vous ?</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Living, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Type de document d'identité</label>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.DocumentType, new SelectList(Enum.GetNames(typeof(DocumentType))))
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Numero d'identité (facultatif)</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.IdentityNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="BtnPrevious" value="Precedent" class="btn btn-default" />
+                <input type="submit" name="BtnNext" value="Terminé" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

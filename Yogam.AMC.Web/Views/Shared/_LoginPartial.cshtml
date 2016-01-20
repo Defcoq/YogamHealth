@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNet.Identity
+@using MvcGlobalisationSupport;
+@using Yogam.AMC.Web.Resources;
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">@Global.LogOff</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li> @Html.ActionLink(Global.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(@Global.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @*<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Global.Login<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                <li>@Html.ActionLink("Log in (Horizontal)", "Login", "Account", routeValues: new { type = "horizontal" }, htmlAttributes: new { id = "loginLink" })</li>
+                <li>@Html.ActionLink("Log in (Vertical)", "Login", "Account", routeValues: new { type = "vertical" }, htmlAttributes: new { id = "loginLink" })</li>
+                <li>@Html.ActionLink("Log in (Inline)", "Login", "Account", routeValues: new { type = "inline" }, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        </li>*@
+        <li>@Html.GlobalisedRouteLink(Global.LangEnglish, "en", ViewContext.RouteData)</li>
+        <li>@Html.GlobalisedRouteLink(Global.LangFrench, "fr", ViewContext.RouteData)</li>
+    </ul>
+}

@@ -1,0 +1,56 @@
+﻿@model Yogam.AMC.Web.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-header">
+        <h1>Edit Category </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Manage", "Index", "Manage")</li>
+        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+        <li class="active">@Model.CategoryName </li>
+    </ol>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.CategoryID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CategoryName)
+                    @Html.ValidationMessageFor(model => model.CategoryName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Save" class="btn btn-primary btn-sm" /> or @Html.ActionLink("Cancel", "Index")
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

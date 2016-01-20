@@ -1,0 +1,85 @@
+﻿@model Yogam.AMC.Web.Models.UserRegistrationData
+@{
+    ViewBag.Title = "Enrollment Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Registration Summary</h2>
+
+
+    <ul class="breadcrumb">
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Login Info
+            </a>
+        </li>
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Personal Contact
+            </a>
+        </li>
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i> Identity Info
+            </a>
+        </li>
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Summary
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Well done!</strong> You successfully Completed your Yogam Registration print or download the pdf version of the card information below
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>Yogam Patient Temporally Card</h1></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">First Name</div>
+                        <div class="col-md-6">@Model.Fistname</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Last Name</div>
+                        <div class="col-md-6">@Model.Lastname</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Enrollment Date:</div>
+                        <div class="col-md-6">@Model.EnrollmentDate</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">Valid From</div>
+                        <div class="col-md-6">@Model.ValidFrom</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">Valid To</div>
+                        <div class="col-md-6">@Model.ValidTo</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">Yogam Card Number</div>
+                        <div class="col-md-6">@Model.YogamCardNumber</div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                
+                @Html.Partial("_YogamMemberCard")
+            </div>
+            <div class="row">
+                @Html.ActionLink("Download pdf version", "GenerateYogamCardPDF", "Account", new { @class = "btn btn-primary btn-large" })
+                @Html.ActionLink("Manage Your New Yogam Profile", "Index", "UserProfile",null, new { @class = "btn btn-primary btn-large" })
+            </div>
+        <div class="panel-footer"></div>
+    </div>
+</div>

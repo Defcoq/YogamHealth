@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewBag.Title = " Yogam Home Page";
+    var randSlide = new Random().Next(1, 7);
+    var randSlide1 = new Random().Next(1, 6);
+    var randSlide2 = new Random().Next(1, 6);
+    var imageSlidePath1 = "~/Images/Slide/slide_1_" + randSlide + ".jpg";
+    var imageSlidePath2 = "~/Images/Slide/slide_2_" + randSlide1 + ".jpg";
+    var imageSlidePath3 = "~/Images/Slide/slide_3_" + randSlide2 + ".jpg";
+    var videoPath = "~/Content/Video/Yogam_Video15MB.mp4";
+}
+
+<div class="container-full">
+    <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="10000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <img src="@Url.Content(imageSlidePath1)" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div style="color:darkorange; font-family:Garamond; font-size:x-large;background: rgba(0,0,0,0.085)">
+                            <h1><b>Soins hospitaliers de haute qualité</b></h1>
+                            <p><b>Yogamhealth vous aide à résoudre tous vos besoins hospitaliers</b></p>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="roundTitle">
+
+                                    <br />
+                                    Seulement
+                                    <br /><span style="font-size:large; color:chocolate">USD 0,69 (FCFA 420) </span>
+                                    <br />par jour
+                                    <br />
+                                    <div class="boxrountitle">Expire le : 01/03/2016</div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+
+                                @Html.ActionLink("Inscrivez vous tout de suite - c'est gratuit", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary btn-large" })
+
+
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="@Url.Content(imageSlidePath2)" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                       
+                        <div style="color:darkorange; font-family:Garamond; font-size:x-large;background: rgba(0,0,0,0.085)">
+                            <h1><b>Visite Ambulatoire Gratuite</b></h1>
+                            <p><b>Soins personnels de santé</b></p>
+                        </div>
+                     
+                     
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="roundTitle">
+
+                                    <br />
+                                    Seulement
+                                    <br /><span style="font-size:large; color:chocolate">USD 0,69 (FCFA 420) </span>
+                                    <br />par jour
+                                    <br />
+                                    <div class="boxrountitle">Expire le : 01/02/2016</div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                @Html.ActionLink("Inscrivez vous tout de suite - c'est gratuit", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary btn-large" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="@Url.Content(imageSlidePath3)" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div style="color:darkorange; font-family:Garamond; font-size:x-large;background: rgba(0,0,0,0.085)">
+                            <h1><b>Bénéficiez immédiatement d'une Remise de 50%</b></h1>
+                            <p><b>USD 255 – FCFA 153.860</b></p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="roundTitle">
+
+                                    <br />
+                                    Seulement si vous vous
+                                    <br />
+                                    inscrivez maintenant
+                                    <br />
+                                    <br />
+                                    <div class="boxrountitle">Expires on : 01/03/2016</div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+
+                                @Html.ActionLink("Inscrivez vous tout de suite - c'est gratuit", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary btn-large" })
+
+                            </div>
+                        </div>
+                  
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</div>
+<div class="row">
+    <ul id="ticker01">
+        <li><span><img src="~/Content/images/Smartphone100x100.png" />Yogam Mobile Apps Coming Soon!…</span><a href="#"> for Download onto your personal device ...</a></li>
+        <li><span><img src="~/Content/images/Smartphone100x100.png" />Applications mobiles Yogam!…</span><a href="#"> Très bientôt Disponibles … pour téléchargement sur vos smartphones et tablettes ...</a></li>
+
+    </ul>
+</div>
+   
+
+<div class="container">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">Our offer</div>
+            <div class="panel-body">
+                <div align="center" class="embed-responsive embed-responsive-16by9">
+                    <video id="yogamVideo" autoplay loop class="embed-responsive-item" controls>
+                        <source src="@Url.Content(videoPath)" type=video/mp4>
+                    </video>
+                </div>
+                <h3>Personal Health care Only USD 0,69 (FCFA 420) per day</h3>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-check-square"></i>Free Outpatient Visit</li>
+                    <li><i class="fa-li fa fa-check-square"></i>Inpatient admission: SAPH*</li>
+                    <li><i class="fa-li fa fa-spinner fa-spin"></i>Laboratory tests: SAPH*</li>
+                    <li><i class="fa-li fa fa-square"></i>Imaging procedures: SAPH*</li>
+                </ul>
+                <p>*Same tariff As per Public Hospital in Cameroon</p>
+                <p>
+                    i.e.: Inpatient admission FCFA 9.000 at Hospital Laquintini of
+                    Douala – the same price at the new hospital; General
+                    Echography FCFA 15.120 – the same price at the new
+                    hospital for you, but these services will cost you the price of
+                    the world-class medical services if you not enroll now for free
+                </p>
+                <p>
+                    @Html.ActionLink("Register now - It's Free", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary btn-large" })
+                </p>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+
+
+
+    </div>
+    @*<div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Yogam Healthcare</div>
+            <div class="panel-body">
+
+
+                <img src="~/Content/images/Yogam_Image_Central.png" class="img-responsive center-block" />
+                <br />
+                <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+
+    </div>*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Yogam Project</div>
+            <div class="panel-body">
+                <div class="project">
+                    <p>
+                        Yogam offers opportunities for all to have
+                        access at affordable prices to the world
+                        class clinic and hospital in project for
+                        Cameroon. The clinic with high-end and
+                        internationally reputed medical doctors
+                        and specialists is planned to open its
+                        doors by the end of 2017 or early months
+                        of 2018.
+
+                    </p>
+                </div>
+
+                <p>YOUR LOW COST HOSPITAL CARE</p>
+                <div class="project">
+                    <p>
+                        Only USD 0,69 (FCFA 420) per day
+                    </p>
+                </div>
+                <p>Only USD 0,69 (FCFA 420) per day FOR YOUR HIGH ANNUAL BENEFITS</p>
+
+                <p><a class="btn btn-default" href="#">Open Free enrollment is here and Now!</a></p>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <img src="~/Content/images/YogamCompactKnowledge_fr.png" />
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h1>La vaccination, prophylactique contre l'infection au VPH et pendant la grossesse</h1></div>
+            <div class="panel-body">
+
+
+                <p>Volume 1: <strong>millions d'Africains sont MALADES alors qu’ils ne devraient pas être malades. Cause: manque de connaissances.</strong> </p>
+                <div class="well"><h3>Points Focaux</h3></div>
+
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-check-square"></i>Lorsque vous êtes vacciné, votre corps réagit rapidement à l'infection naturelle lorsqu'il est exposé à un stade ultérieur; cela empêche ou modifie l'effet de la maladie.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>Les vaccins sont des préparations biologiques qui peuvent être divisés en vaccins vivants atténués, vaccins inactivés et macromolécules purifiées dérivées de pathogènes.</li>
+
+                    <li><i class="fa-li fa fa-check-square"></i>Les vaccins vivants atténués induisent une immunité à médiation humorale et cellulaire et nécessitent généralement un seul rappel; ils peuvent revenir à la forme virulente. Seule une petite dose est nécessaire par voie naturelle.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>Les vaccins inactivés sont moins puissants que les vaccins vivants et nécessitent plusieurs rappels et induisent principalement une immunité humorale; ils ne peuvent pas revenir à la forme virulente. Une grande dose est nécessaire par injection (voie non naturelle).</li>
+
+                    <li><i class="fa-li fa fa-check-square"></i>Trois formes générales de vaccins de macromolécules purifiées sont en cours d'utilisation: toxines inactivées, vaccins conjugués et vaccins sous-unitaires.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>La vaccination prophylactique contre l'infection par le PVH est de deux types: vaccin quadrivalent (Contenu: VLP (particule semblable au virus) 16, 18, 6, 11) et vaccin bivalent (VLP 16, 18).  Actuellement pas recommandé chez les hommes. NB: Les vaccins du PVH L1 sont prophylactique et non thérapeutique.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>Le Vaccin quadrivalent est injecté par voie intramusculaire (deltoïde ou la partie antérolatérale de la cuisse) aux femmes entre 9-26 ans pour prévenir le cancer du col utérin; La vaccination contre le VPH se fait de routine entre 10 à 12 ans de l'âge chez les adolescentes avant la première acte sexuelle. Le vaccin n’est pas recommandé pour une utilisation en cas d'hypersensibilité au composant actif ou inactif du vaccin et pendant la grossesse. Si une femme se trouve être enceinte après le début de la série de vaccination (3 doses à 0, 2, 6 mois), le reste du schéma en trois doses doit être retardée jusqu'à la fin de la grossesse. Le vaccin peut être administré durant l'allaitement. L'effet indésirable peut être des réactions au site d'injection (fièvre, douleur, gonflement, érythème), myalgie, céphalée, syncope, fatigue, réaction d'hypersensibilité. </li>
+
+
+                   
+                    <li><i class="fa-li fa fa-check-square"></i>Le vaccin bivalent est injecté par voie intramusculaire (deltoïde) aux femmes entre 10 ans et 45 ans pour prévenir le cancer du col utérin; Pas sûr chez les filles de moins de 10 année d'âge. 3 doses à 0, 1, 6 mois. L’effet indésirable peut être des réactions au site d'injection, fièvre, myalgies, céphalées, myalgies, rash, urticaire.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>Les vaccins contre-indiqués durant la grossesse: le vaccin BCG, le vaccin contre la rougeole, le vaccin contre les oreillons, le vaccin contre le rubéole, le vaccin contre la varicelle, le vaccin contre la vaccine, le vaccin contre le papillomavirus humain; les vaccins spécialement indiqués pendant la grossesse: le vaccin antigrippal inactivé, le vaccin contre la coqueluche, le vaccin antipoliomyélitique inactivé, l'anatoxine diphtérique, l’anatoxine tétanique; les vaccins recommandés pendant la grossesse dans certaines situations: le vaccin contre l’hépatite A, le vaccin contre l'hépatite B, le vaccin contre le méningocoque, le vaccin antipneumococcique, le vaccin contre la rage, le vaccin contre la typhoïde, le vaccin contre la fièvre jaune.</li>
+                    <li><i class="fa-li fa fa-check-square"></i>L'allaitement n’est ni considéré comme une précaution ni comme une contre-indication pour la plupart des vaccins couramment utilisés. En outre, l'allaitement ne nuit pas à la réussite ou à la sécurité de la vaccination.</li>
+                 </ul>
+
+                <div class="well"><h3>Termes médicaux expliqués</h3></div>
+
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-spinner fa-spin"></i><strong>Immunité</strong> : Protection contre les maladies infectieuses grâce à l'action du système immunitaire.</li>
+                    <li><i class="fa-li fa fa-spinner fa-spin"></i><strong>Système immunitaire</strong>  : La façon dont le corps se défend contre l’infection, la maladie et des substances externes.</li>
+                    <li><i class="fa-li fa fa-spinner fa-spin"></i> <strong>Virus </strong>: Un micro-organisme qui envahit les cellules vivantes pour se développer ou se reproduire</li>
+                    <li><i class="fa-li fa fa-spinner fa-spin"></i> <strong>Human papillomaviruses (HPV) </strong> :  papillomaviruses (HPV) are common viruses that can cause warts. There are more than 100 types of HPV. Most are harmless, but about 30 types put you at risk for cancer. These types affect the genitals and you get them through sexual contact with an infected partner.</li>
+                </ul>
+
+
+                <p><a class="btn btn-default" href="#">Lire tous les articles sur Yogam &raquo;</a></p>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,37 @@
+﻿@model Yogam.AMC.Web.Models.UserRegistrationData
+
+@{
+   
+    Layout = null;
+  
+}
+<link href="@Server.MapPath("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<link href="@Server.MapPath("~/Content/Site.css")" rel="stylesheet" />
+<style>
+    #rcorners1 {
+    border-radius: 25px;
+    background: #ea5b0c;
+    padding: 20px;
+    width: 90%;
+    height: 40%;
+    background-image:@Url.Content("~/Content/images/YogamLogo_Transparant.png");
+    background-color: #ea5b0c;
+	color:#fff;
+   font-size: 16px;
+
+}
+</style>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link href="~/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/jquery_news_ticker/li-scroller.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+
+        @Html.Partial("_YogamMemberCardPdf", Model)
+    </div>
+</div>   
+   
+

@@ -1,0 +1,91 @@
+﻿@using Yogam.AMC.Data.Models;
+@model Yogam.AMC.Web.Models.RegisterViewModel3
+@{
+    ViewBag.Title = "Enrollment Step 3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Login Info
+            </a>
+        </li>
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Personal Contact
+            </a>
+        </li>
+        <li class="active">
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i> Identity Info
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Summary
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Our focus is your hospital care</strong>
+
+        Register for your Yogam Membership card
+
+        It only takes two steps and a few moments to register for your Yogam Membership Card.
+
+        Once registered, you will have access to your membership information, health information and exclusive member discounts.
+    </div>
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("RegisterStep3", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+      
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nationality, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Nationality, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Living, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Living, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.DocumentType, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+               @Html.DropDownListFor(x => x.DocumentType, new SelectList(Enum.GetNames(typeof(DocumentType))))
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.IdentityNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.IdentityNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="BtnPrevious" value="Previous" class="btn btn-default" />
+                <input type="submit" name="BtnNext" value="Finish" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

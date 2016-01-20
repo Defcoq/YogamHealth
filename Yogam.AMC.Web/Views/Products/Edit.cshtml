@@ -1,0 +1,99 @@
+﻿@model Yogam.AMC.Data.Models.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="page-header">
+        <h1>Edit Product </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Manage", "Index", "Manage")</li>
+        <li>@Html.ActionLink("Products", "Index", "Products")</li>
+        <li class="active">@Model.ProductName </li>
+    </ol>
+
+    <div class="row clearfix">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.ProductID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-2" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(model => model.ProductName)
+                        @Html.ValidationMessageFor(model => model.ProductName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitPrice, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-2 input-group">
+                        <span class="input-group-addon">$</span>
+                        @Html.TextBoxFor(model => model.UnitPrice, new { @class = "form-control" })
+                        <span class="input-group-addon">.00</span>
+                        @Html.ValidationMessageFor(model => model.UnitPrice)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitsInStock, new { @class = "control-label col-md-2" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(model => model.UnitsInStock)
+                        @Html.ValidationMessageFor(model => model.UnitsInStock)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitsOnOrder, new { @class = "control-label col-md-2" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(model => model.UnitsOnOrder)
+                        @Html.ValidationMessageFor(model => model.UnitsOnOrder)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ReorderLevel, new { @class = "control-label col-md-2" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(model => model.ReorderLevel)
+                        @Html.ValidationMessageFor(model => model.ReorderLevel)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Discontinued, new { @class = "control-label col-md-2" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(model => model.Discontinued)
+                        @Html.ValidationMessageFor(model => model.Discontinued)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" id="savenew">Save & New</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="duplicate">Duplicate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

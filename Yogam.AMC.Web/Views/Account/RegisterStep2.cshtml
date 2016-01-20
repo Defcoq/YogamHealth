@@ -1,0 +1,212 @@
+﻿@model Yogam.AMC.Web.Models.RegisterViewModel2
+@using Yogam.AMC.Data.Models;
+@{
+    ViewBag.Title = "Enrollment Step 2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var gender = TempData["Gender"];
+    var birthDate = Model != null? Model.DateOfBirth : null;
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="completed">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Login Info
+            </a>
+        </li>
+        <li class="active">
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Personal Contact
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i> Identity Info
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Summary
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Our focus is your hospital care</strong>
+
+        Register for your Yogam Membership card
+
+        It only takes two steps and a few moments to register for your Yogam Membership Card.
+
+        Once registered, you will have access to your membership information, health information and exclusive member discounts.
+    </div>
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("RegisterStep2", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+     
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label"})
+            <div class="col-md-10">
+                <input type="hidden" id="CountryCode" />
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control",@data_provide = "typeahead", @placeholder = "Insert Country here", @autocomplete = "off" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control", @data_provide = "typeahead", @placeholder = "Type state here", @autocomplete = "off" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.Gender, new SelectList(Enum.GetNames(typeof(Gender))))
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Fistname, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Fistname, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Lastname, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+               
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @Value = birthDate, @class = "form-control", @style = "width:300px" }, })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="BtnPrevious" value="Previous" class="btn btn-default" />
+                <input type="submit" name="BtnNext" value="Next" class="btn btn-default" />
+            </div>
+        </div>
+       
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript">
+
+  $(function () {
+
+      $('#DateOfBirth').datetimepicker({
+
+
+       defaultDate: '@birthDate',
+         // viewMode: 'years',
+          format: 'DD-MM-YYYY',
+
+      showClose: true,
+
+      showClear: true,
+
+      toolbarPlacement: 'top'
+ 
+
+    });
+
+      $('#DateOfBirth').removeAttr("data-val-date");
+
+
+      //typehead
+      $("#Country").typeahead({
+          source: function (query, process) {
+              console.log("Query  " + query);
+              var countries = [];
+              map = {};
+
+              // This is going to make an HTTP post request to the controller
+              return $.post('/Account/CountryLookup', { query: query }, function (data) {
+
+                  // Loop through and push to the array
+                  $.each(data, function (i, country) {
+                      map[country.CountryName] = country;
+                      countries.push(country.CountryName);
+
+                  });
+
+                  // Process the details
+                  process(countries);
+              });
+          },
+          updater: function (item) {
+              var selectedShortCode = map[item].CountryCode;
+              console.log("Country code select " + selectedShortCode);
+              // Set the text to our selected id
+              // $("#details").text("Selected : " + selectedShortCode);
+              $("#CountryCode").val(selectedShortCode);
+              return item;
+          }
+      });
+
+
+      $("#State").typeahead({
+          source: function (query, process) {
+              var countries = [];
+              map = {};
+              var country = $("#CountryCode").val();
+              console.log("Country code select " + country);
+              // This is going to make an HTTP post request to the controller
+              return $.post('/Account/CountryStateLookup?country=' + country, { query: query }, function (data) {
+
+                  // Loop through and push to the array
+                  $.each(data, function (i, country) {
+                      map[country.CountryName] = country;
+                      countries.push(country.CountryName);
+
+                  });
+
+                  // Process the details
+                  process(countries);
+              });
+          },
+          updater: function (item) {
+              var selectedShortCode = map[item].CountryCode;
+             // alert("state " + selectedShortCode);
+              // Set the text to our selected id
+              // $("#details").text("Selected : " + selectedShortCode);
+             // $("CountryCode").val(selectedShortCode);
+              return item;
+          }
+      });
+
+      //end typeahead
+
+  });
+
+</script>
+
+
+}

@@ -1,0 +1,35 @@
+﻿@*@model Yogam.AMC.Web.Models.EmployeeViewModel[]*@
+<div class="container">
+    <div class="page-header">
+        <h1>About Us Yogam Health care<small> the first High-quality Hospital Care in Cameroon and central Africa.</small></h1>
+    </div>
+
+    <div class="row">
+        <h3>YogamHealth</h3>
+
+        Yogam offers opportunities for all to have access at affordable prices to the world class hospital Care in Cameroon. The New Hospital with high-end and internationally reputed medical doctors and specialists is planned to open its doors by the end of 2017 or early months of 2018.
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-check-square"></i>Yogam is YOUR LOW COST HOSPITAL CARE!</li>
+            <li><i class="fa-li fa fa-check-square"></i>Yogam is Only USD 0,69 (FCFA 420) per person, per day!</li>
+            <li><i class="fa-li fa fa-check-square"></i>Yogam is Only USD 0,69 (FCFA 420) per day for all your annual high quality Hospital Needs!</li>
+          
+        </ul>
+        <strong>HIGH QUALITY HOSPITAL CARE</strong>
+        <br /> <strong> FOR A HEALTHIER, HAPPIER LIFE</strong> 
+        <br />
+
+        Life is Priceless, and your everyday low health care expenses are one of the most important things to protect your Life!
+
+        @*@foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <img src="@Url.Content("~/Images/employees/" + item.EmployeeID + ".png")" alt="@item.FirstName @item.LastName" class="img-circle img-responsive">
+                <h3>
+                    @item.FirstName @item.LastName <small>@item.Title</small>
+                </h3>
+                <p>@item.Notes</p>
+            </div>
+        }*@
+    </div>
+
+</div>

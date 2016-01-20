@@ -1,0 +1,234 @@
+﻿@model Yogam.AMC.Data.Models.Customer
+
+@{
+    ViewBag.Title = "Edit Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="page-header">
+        <h1>Edit Customer </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Manage", "Index", "Manage")</li>
+        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+        <li class="active">@Model.CompanyName </li>
+    </ol>
+
+    <div class="row clearfix">
+        <div class="col-md-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+
+                    <ul id="customertab" class="nav nav-tabs">
+                        <li class="active"><a href="#info" data-toggle="tab">Customer Info</a></li>
+                        <li><a href="#address" data-toggle="tab">Address</a></li>
+                    </ul>
+
+                    <div class="tab-content well" style="padding-top: 20px;">
+
+                        <div class="tab-pane active" id="info">
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.CustomerId)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CustomerCode, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CustomerCode)
+                                    @Html.ValidationMessageFor(model => model.CustomerCode)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CompanyName, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CompanyName)
+                                    @Html.ValidationMessageFor(model => model.CompanyName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ContactName, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ContactName)
+                                    @Html.ValidationMessageFor(model => model.ContactName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ContactTitle, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ContactTitle)
+                                    @Html.ValidationMessageFor(model => model.ContactTitle)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="address">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Address)
+                                    @Html.ValidationMessageFor(model => model.Address)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.City, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.City)
+                                    @Html.ValidationMessageFor(model => model.City)
+                                </div>
+                            </div>
+
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.RegionId, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("RegionId", null, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.RegionId)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        @Html.LabelFor(model => model.TerritoryId, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <span id="territory">@Html.DropDownList("TerritoryId", null, new { @class = "form-control" })</span>
+                                            @Html.ValidationMessageFor(model => model.TerritoryId)
+                                        </div>
+                                </div>*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RegionId, new { @class = "control-label col-md-2" })
+                                @Html.HiddenFor(model => model.RegionId)
+                                <div class="col-md-10">
+                                    <div id="regiondropdown" class="dropdown">
+                                        <button id="regionbutton" class="btn btn-sm btn-info" data-toggle="dropdown">@Model.Region.RegionDescription</button>
+                                        <ul class="dropdown-menu">
+                                            @foreach (var item in ViewBag.RegionId)
+                                            {
+                                                <li><a href="#" tabindex="-1" data-value="@item.Value">@item.Text</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TerritoryId, new { @class = "control-label col-md-2" })
+                                @Html.HiddenFor(model => model.TerritoryId)
+                                <div class="col-md-10">
+                                    <div id="territorydropdown" class="dropdown">
+                                        <button id="territorybutton" class="btn btn-sm btn-info" data-toggle="dropdown">@Model.Territory.TerritoryDescription</button>
+                                        <ul id="territories" class="dropdown-menu">
+                                            @foreach (var item in ViewBag.TerritoryId)
+                                            {
+                                                <li><a href="#" tabindex="-1" data-value="@item.Value">@item.Text</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PostalCode, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.PostalCode)
+                                    @Html.ValidationMessageFor(model => model.PostalCode)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Country, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Country)
+                                    @Html.ValidationMessageFor(model => model.Country)
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+
+                            <div class="btn-group dropdown" style="margin-bottom:5px">
+                                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                                <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            or @Html.ActionLink("Cancel", "Index")
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Deletion confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>You're about to delete the customer '@Model.CompanyName'. </p>
+                <p>
+                    <strong>Are you sure you want to continue?</strong>
+                </p>
+                @using (Html.BeginForm("Delete", "Customers", FormMethod.Post, new { @id = "delete-form", role = "form" }))
+                {
+                    @Html.HiddenFor(m => m.CustomerId)
+                    @Html.AntiForgeryToken()
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="$('#delete-form').submit();">Yes, delete this customer.</button>
+                <button type="button" class="btn btn-primary" onclick="$('#deleteConfirmationModal').modal('hide')">No, do not delete.</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $('#regiondropdown li a').click(function () {
+            var $this = $(this);
+            var region = $this.data('value');
+            var regionName = $this.text();
+            $('#RegionId').val(region);
+            $.get("/Customers/Territories", { regionId: region })
+            .done(function (data) {
+                $('#regionbutton').text(regionName);
+                $('#territorybutton').text('Select Territory');
+                $('#territories').html(data);
+            });
+        });
+
+        $('body').on("click", '#territories li a', function () {
+            var $this = $(this);
+            var territory = $this.data('value');
+            var territoryName = $this.text();
+            $('#TerritoryId').val(territory);
+            $('#territorybutton').text(territoryName);
+        });
+
+        $(document).ready(function () {
+            //$('#deleteConfirmationModal').modal('show');
+            //$('#deleteConfirmationModal').modal('hide');
+            //$('.nav-tabs a[href="#address"]').tab('show');
+        });
+
+    </script>
+}

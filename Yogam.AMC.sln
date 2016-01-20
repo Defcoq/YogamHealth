@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yogam.AMC.Web", "Yogam.AMC.Web\Yogam.AMC.Web.csproj", "{EA686416-AD28-4BE8-BFE3-1CD32CEEEB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yogam.AMC.Data", "Yogam.AMC.Data\Yogam.AMC.Data.csproj", "{2D44558D-B99D-43BB-ADF4-9B7601F05AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yogam.AMC.Infrastructure", "Yogam.AMC.Infrastructure\Yogam.AMC.Infrastructure.csproj", "{F76F6578-5C94-4214-B4F7-83D3D25176C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{37335265-B4B0-4225-BC47-BDBBC873FA7B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA686416-AD28-4BE8-BFE3-1CD32CEEEB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA686416-AD28-4BE8-BFE3-1CD32CEEEB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA686416-AD28-4BE8-BFE3-1CD32CEEEB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA686416-AD28-4BE8-BFE3-1CD32CEEEB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D44558D-B99D-43BB-ADF4-9B7601F05AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D44558D-B99D-43BB-ADF4-9B7601F05AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D44558D-B99D-43BB-ADF4-9B7601F05AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D44558D-B99D-43BB-ADF4-9B7601F05AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76F6578-5C94-4214-B4F7-83D3D25176C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76F6578-5C94-4214-B4F7-83D3D25176C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76F6578-5C94-4214-B4F7-83D3D25176C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76F6578-5C94-4214-B4F7-83D3D25176C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

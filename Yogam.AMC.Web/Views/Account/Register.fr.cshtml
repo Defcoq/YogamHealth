@@ -1,0 +1,89 @@
+﻿@model Yogam.AMC.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Enregistrement Etape 1";
+}
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="active">
+            <a href="javascript:void(0);">
+                <i class="fa fa-user"></i> Info Accès
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-book"></i> Contact Personel
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-photo"></i>Info Identité
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="fa fa-cc-mastercard"></i> Résumé
+            </a>
+        </li>
+    </ul>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Notre centre d’intérêt c’est vos soins hospitaliers</strong>
+
+        Notre centre d’intérêt c’est vos soins hospitaliers
+
+        Inscrivez-vous pour obtenir votre carte de membre Yogam
+
+        Juste deux étapes et quelques instants pour vous inscrire et obtenir votre carte de membre Yogam provisoire.
+
+
+        Une fois inscrit, vous aurez accès à vos informations de membre, aux réductions exclusives réservées aux membres et plus tard aux informations concernant votre santé.
+    </div>
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+  
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label >Nom d'accès</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Mot de passe</label>
+            </div>
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 control-label">
+                <label>Confirmé mot de passe</label>
+            </div>
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" name="BtnNext" value="Suivant" />
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Yogam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Content/jquery_news_ticker/li-scroller.css" rel="stylesheet" />
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Yogam", "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            @Html.Partial("_BackendMenuPartial")
+            @Html.Partial("_LoginPartial")
+        </div>
+       
+    </div>
+</div>
+    @Html.Partial("_Alerts")
+    <!--JP Insert-->
+    <br />
+    <br/>
+   
+    <div class="row row-eq-height ">
+        <div>
+            <div class="col-md-2 ">
+                <div class="inside" style="background-color:white">
+                    <div class="content">
+                        <img src="~/Content/images/YogamLogo_Transparant.png"  width="100"/><br><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="inside">
+                    <div class="content">
+                        <img src="~/Content/images/Family.jpg" width="100" /><br>For Individual & Families<br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="inside">
+                    <div class="content">
+                        <img src="~/Content/images/Employers.jpg" width="100" /><br>For Employers<br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="inside">
+                    <div class="content">
+                        <img src="~/Content/images/brokers.jpg" width="100" /><br>For Agents & Brokers<br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="inside">
+                    <div class="content">
+                        <img src="~/Content/images/Providers.jpg" width="100" /><br>For providers<br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!--End JP Insert-->
+    @RenderBody()
+    <div class="container">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Yogam Power by JP.InnovSoft.Design.com</p>
+           
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datetime")
+      <script src="~/Content/jquery_news_ticker/jquery.li-scroller.1.0.js"></script>
+    <script src="~/Scripts/jquery.val.date.js"></script>
+     
+    <script type="text/javascript">
+    $(function () {
+        //alert("Jquery is working");
+        $("ul#ticker01").liScroll();
+       // alert($("ul#ticker01").val());
+
+    });
+    </script>
+
+    <script src="~/signalr/hubs"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

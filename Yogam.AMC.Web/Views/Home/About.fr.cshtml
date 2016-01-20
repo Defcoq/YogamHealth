@@ -1,0 +1,34 @@
+﻿
+@*@model Yogam.AMC.Web.Models.EmployeeViewModel[]*@
+<div class="container">
+    <div class="page-header">
+        <h1>A Propos de Yogam Health care <small>le premier Hopital de haute qualité au Cameroun et en Afrique Centrale.</small></h1>
+    </div>
+
+    <div class="row">
+        <h3>YogamHealth</h3>
+        Yogam offre  à tout le monde des opportunités pour avoir accès aux soins hospitaliers de haute qualité à prix abordables. Au Cameroun, le nouvel hôpital prévoit de commencer ses activités à la fin de l’année 2017 ou au début de l’année 2018.
+            <ul class="fa-ul">
+            <li><i class="fa-li fa fa-check-square"></i>Yogam c’est vos SOINS HOSPITALIERS pas chers !</li>
+            <li><i class="fa-li fa fa-check-square"></i>Yogam c’est Seulement 0,69 USD (420 FCFA) par personne, par jour !</li>
+            <li><i class="fa-li fa fa-check-square"></i>	Yogam c’est Seulement 0,69 USD (420 FCFA) par jour pour tous vos besoins annuels hospitaliers de haute qualité !</li>
+
+        </ul>
+        <strong>SOINS HOSPITALIERS DE HAUTE QUALITÉ</strong>
+        <br /> <strong> POUR UNE VIE PLUS SAINE, PLUS HEUREUSE.</strong>
+        <br />
+
+        La Vie est inestimable, et vos petites dépenses quotidiennes en soins de santé sont l’une des choses les plus importantes pour protéger votre Vie!
+        @*@foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <img src="@Url.Content("~/Images/employees/" + item.EmployeeID + ".png")" alt="@item.FirstName @item.LastName" class="img-circle img-responsive">
+                    <h3>
+                        @item.FirstName @item.LastName <small>@item.Title</small>
+                    </h3>
+                    <p>@item.Notes</p>
+                </div>
+            }*@
+    </div>
+
+</div>

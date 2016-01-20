@@ -1,0 +1,62 @@
+﻿@using Yogam.AMC.Web.Resources;
+<ul class="nav navbar-nav">
+@if (Request.IsAuthenticated)
+{
+    <li>@Html.ActionLink(Global.ManageProfile, "Index", "UserProfile")</li>
+}
+    @if (Request.IsAuthenticated && User.IsInRole("Administrators"))
+    {
+        <li>@Html.ActionLink("Manage User", "Index", "Admin")</li>
+        <li>@Html.ActionLink("Manage Role", "Index", "RoleAdmin")</li>
+        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+        <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("All", "Index", "Manage")</li>
+                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                <li>@Html.ActionLink("Regions", "Index", "Regions")</li>
+                <li>@Html.ActionLink("Shippers", "Index", "Shippers")</li>
+                <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
+                <li>@Html.ActionLink("Territories", "Index", "Territories")</li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Alerts", "Alerts", "Bootstrap")</li>
+                <li>@Html.ActionLink("Buttons", "Buttons", "Bootstrap")</li>
+                <li>@Html.ActionLink("Popovers", "Popovers", "Bootstrap")</li>
+                <li>@Html.ActionLink("Progress bars", "Progressbars", "Bootstrap")</li>
+                <li>@Html.ActionLink("ScrollSpy", "Scrollspy", "Bootstrap")</li>
+                <li>@Html.ActionLink("Tooltips", "Tooltips", "Bootstrap")</li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("An Overview", "Index", "Helpers")</li>
+                <li>@Html.ActionLink("Buttons", "Buttons", "Helpers")</li>
+                <li>@Html.ActionLink("Panels", "Panel", "Helpers")</li>
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li>@Html.ActionLink(Global.Home, "Index", "Home")</li>
+        <li>@Html.ActionLink(Global.About, "About", "Home")</li>
+        <li>@Html.ActionLink("FAQs", "FAQ", "Home")</li>
+        <li>@Html.ActionLink(Global.Contact, "Contact", "Home")</li>
+    }
+    
+</ul>
+@using (Html.BeginForm("Index", "Search", FormMethod.Post, new {@class = "navbar-form navbar-left", role = "search"}))
+{
+    <div class="form-group">
+        @Html.TextBox("searchquery","",new { @id="searchquery", @class="form-control input-sm", placeholder="Search" })
+        @Html.Hidden("fromcontroller", @ViewContext.RouteData.Values["controller"], new  { @id = "fromcontroller" })
+    </div>
+    <button type="submit" class="btn btn-default btn-xs">GO</button>
+}

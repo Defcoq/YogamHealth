@@ -1,0 +1,24 @@
+﻿@using Yogam.AMC.Web.Helpers
+@using Yogam.AMC.Web.Helpers.Alerts
+
+@{
+    ViewBag.Title = "Helpers : Buttons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="page-header">
+        <h1>Helpers : Buttons </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>Helpers</li>
+        <li class="active">Buttons</li>
+    </ol>
+    
+    @Html.Alert("Core meltdown imminent").Danger().Dismissible()
+    @BootstrapHelpers.Button("danger", "lg", "A Large button", "myLargeButton")
+    @ButtonHelper.Button("My Button", Enums.ButtonStyle.Warning, Enums.ButtonSize.Normal)
+    @Html.BootstrapButton("My Button", Enums.ButtonStyle.Info, Enums.ButtonSize.Normal)
+
+</div>

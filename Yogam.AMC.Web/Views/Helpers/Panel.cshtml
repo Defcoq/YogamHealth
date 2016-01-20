@@ -1,0 +1,30 @@
+﻿@using Yogam.AMC.Web.Helpers
+@using Yogam.AMC.Web.Helpers.Panels
+@{
+    ViewBag.Title = "Helpers : Panels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-header">
+        <h1>Helpers : Buttons </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>Helpers</li>
+        <li class="active">Panels</li>
+    </ol>
+
+    <div class="row padbottom">
+        <div class="col-md-12">
+
+            @using (Html.Panel("Title", Enums.PanelStyle.Success))
+            {
+                <p>Hello World</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            }
+
+        </div>
+    </div>
+</div>

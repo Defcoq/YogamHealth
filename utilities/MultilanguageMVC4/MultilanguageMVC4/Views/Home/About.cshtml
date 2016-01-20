@@ -1,0 +1,28 @@
+﻿@using MultilanguageMVC4.Resources
+
+@{
+    ViewBag.Title = Global.About;
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Use this area to provide additional information.
+    </p>
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink(Global.Home, "Index", "Home")</li>
+        <li>@Html.ActionLink(Global.About, "About", "Home")</li>
+        <li>@Html.ActionLink(Global.Contact, "Contact", "Home")</li>
+    </ul>
+</aside>

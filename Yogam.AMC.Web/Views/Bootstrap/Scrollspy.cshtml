@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Scrollspy - Northwind Traders</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body data-target="#scrollspyexample" data-spy="scroll">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="scrollspyexample">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">ScrollSpy Example</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#paragraphOne">Paragraph 1</a></li>
+                    <li class=""><a href="#paragraphTwo">Paragraph 2</a></li>
+                    <li><a href="#paragraphThree">Paragraph 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-offset="0">
+        <h3 id="paragraphOne">One</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam erat lectus, fringilla eu posuere sodales, pretium at dui.
+            Vivamus ultrices turpis eu gravida pretium. Fusce sed condimentum arcu. Maecenas id ipsum venenatis, tincidunt lorem sit amet, faucibus massa.
+            Nunc pharetra tincidunt justo sed facilisis. Ut ut convallis nisi. Nulla ac facilisis ante, eget accumsan purus. Praesent placerat sem accumsan enim
+            condimentum, in bibendum enim mollis.Proin ut molestie ligula. Aenean non augue in quam facilisis dictum sit amet quis nisi. Vivamus facilisis
+            fermentum rhoncus. Quisque sed odio libero. Aenean nulla ante, iaculis in magna a, eleifend dapibus sem. Nam scelerisque enim eu adipiscing rhoncus.
+            Duis non felis erat. Vestibulum tristique lacinia blandit. Mauris egestas sem a ante accumsan tincidunt. Vivamus id nisl vulputate, placerat arcu et,
+            euismod quam. Maecenas at lectus fringilla, scelerisque risus id, rutrum tortor. Cras a ante et orci consequat feugiat. Duis accumsan vehicula turpis
+            quis imperdiet. Pellentesque accumsan justo at risus pellentesque cursus consequat sit amet nisl. Morbi ac enim consectetur, laoreet sapien id, euismod
+            sapien.
+            Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius. Aliquam tristique risus ligula, in pharetra elit interdum et. Aliquam vel libero quis enim egestas semper eget at sapien. Nulla eget
+            ultricies ante, consequat pulvinar ligula. Phasellus sit amet laoreet purus. Maecenas tempor tincidunt tincidunt. Integer eu massa ligula. Maecenas et
+            mattis metus.
+            Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius. Aliquam tristique risus ligula, in pharetra elit interdum et. Aliquam vel libero quis enim egestas semper eget at sapien. Nulla eget
+            ultricies ante, consequat pulvinar ligula. Phasellus sit amet laoreet purus. Maecenas tempor tincidunt tincidunt. Integer eu massa ligula. Maecenas et
+            mattis metus.
+        </p>
+        <h3 id="paragraphTwo">Two</h3>
+        <p>
+            Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius. Aliquam tristique risus ligula, in pharetra elit interdum et. Aliquam vel libero quis enim egestas semper eget at sapien. Nulla eget
+            ultricies ante, consequat pulvinar ligula. Phasellus sit amet laoreet purus. Maecenas tempor tincidunt tincidunt. Integer eu massa ligula. Maecenas et
+            mattis metus.Integer aliquet ligula eget elit faucibus, quis pretium justo iaculis. Quisque quis dolor volutpat, varius tellus eget, luctus nibh. Cras tempus tincidunt
+            nibh, non lobortis lorem auctor quis. Phasellus nunc eros, ultrices id augue vitae, ultrices mollis enim. In a mi id sapien tincidunt ultrices sed id tellus.
+            Quisque malesuada vel eros eu rhoncus. Vivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec. Ut id lorem a purus pretium dapibus et sed
+            odio. In eget suscipit mi. Donec sit amet tellus tincidunt, tincidunt metus sed, ultrices lorem.Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius. Aliquam tristique risus ligula, in pharetra elit interdum et. Aliquam vel libero quis enim egestas semper eget at sapien. Nulla eget
+            ultricies ante, consequat pulvinar ligula. Phasellus sit amet laoreet purus. Maecenas tempor tincidunt tincidunt. Integer eu massa ligula. Maecenas et
+            mattis metus.ivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec.ivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec.ivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec.ivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec.
+        </p>
+        <h3 id="paragraphThree">Three</h3>
+        <p>
+            Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.
+            Nulla facilisi. Proin commodo porttitor ligula, sit amet posuere diam rhoncus vel. Praesent id orci id diam pellentesque laoreet in vitae nunc. Curabitur
+            ultrices malesuada tortor, non elementum erat tincidunt ac.Mauris porttitor mi luctus quam vehicula pharetra. Donec id tempor orci. Pellentesque auctor
+            enim tellus, at tempor lectus suscipit vitae. Integer elementum odio ipsum, ut tincidunt lacus commodo non. Maecenas aliquet ut nisi vitae consequat.
+            Praesent eu ultricies ante. Etiam at felis mattis, auctor eros non, dapibus odio. Vivamus fringilla diam neque, id tincidunt risus fringilla sit amet.
+            Nulla vestibulum felis a dapibus porta. Donec at turpis mauris. Etiam facilisis tellus vel cursus convallis. Donec placerat purus velit, pretium pretium
+            leo mattis gravida.Maecenas venenatis, turpis id faucibus porta, diam tortor pellentesque lorem, ac viverra urna tellus sit amet nisl. Pellentesque habitant
+            morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse iaculis, ligula eu lacinia aliquam, nisl eros sodales orci, at cursus
+            tortor sem ac augue. Morbi bibendum urna sit amet sapien posuere porta. Cras dui quam, euismod eu nunc a, ultricies viverra quam. Vivamus laoreet a lacus
+            at luctus. Aenean iaculis elit id molestie consectetur. Sed quis luctus erat, et accumsan lorem. Curabitur adipiscing dignissim metus in dictum.
+            Integer aliquet ligula eget elit faucibus, quis pretium justo iaculis. Quisque quis dolor volutpat, varius tellus eget, luctus nibh. Cras tempus tincidunt
+            nibh, non lobortis lorem auctor quis. Phasellus nunc eros, ultrices id augue vitae, ultrices mollis enim. In a mi id sapien tincidunt ultrices sed id tellus.
+            Quisque malesuada vel eros eu rhoncus. Vivamus et vestibulum magna.Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras
+            adipiscing non arcu ut adipiscing. Fusce eget lorem lorem. Sed ultrices vestibulum interdum. Aenean quis lorem tortor. Donec at ultricies justo. Nullam
+            faucibus elit eu lobortis eleifend. Curabitur eu lobortis sapien, non rutrum nulla.Donec quis luctus lorem. Morbi nec euismod tortor. Phasellus erat sem,
+            laoreet nec iaculis vel, gravida non massa. Praesent pharetra nisl diam, at pellentesque magna facilisis nec. Ut id lorem a purus pretium dapibus et sed
+            odio. In eget suscipit mi. Donec sit amet tellus tincidunt, tincidunt metus sed, ultrices lorem.Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius.Suspendisse tempor accumsan ultricies. Nulla ornare interdum neque et mattis. Pellentesque pharetra lorem libero, ut fermentum enim eleifend ac.
+            Quisque a nunc a massa commodo convallis pellentesque nec leo. In justo orci, porttitor lobortis metus nec, rutrum tristique eros. Sed malesuada tristique
+            fringilla. Sed porta tempus velit et laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non feugiat enim. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Duis fermentum, velit elementum ullamcorper facilisis, lectus erat ultrices tortor, ut ornare leo velit at nibh. Mauris
+            egestas pretium nisl, ac tempor est aliquam sit amet. Donec velit nunc, egestas sed tempor et, scelerisque eget nisi.Ut suscipit turpis in quam dapibus,
+            sed aliquet massa aliquam. Cras venenatis non libero vel ornare. Phasellus lacus purus, laoreet et ipsum ac, tristique sagittis nisl. Integer vel tempor
+            est. Donec dignissim mauris quis eros iaculis, a tristique enim viverra. Donec quis tortor posuere, dapibus dolor at, malesuada lorem. Sed volutpat eget
+            urna nec varius.
+        </p>
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
