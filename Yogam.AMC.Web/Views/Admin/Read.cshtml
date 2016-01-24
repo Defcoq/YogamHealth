@@ -1,0 +1,79 @@
+﻿@model Yogam.AMC.Data.Models.ApplicationUser
+@{
+    ViewBag.Title = "Read Yogam User data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>All User Data</h2>
+    <div class="form-group">
+        <label>Name</label>
+        <p class="form-control-static">@Model.Id</p>
+    </div>
+   
+        @Html.HiddenFor(x => x.Id)
+
+    <div class="form-group">
+        <label>userName: </label>
+        @Model.UserName
+    </div>
+
+    <div class="form-group">
+        <label>First Name :</label>
+        @Model.Fistname
+    </div>
+
+    <div class="form-group">
+        <label>Last Name : </label>
+        @Model.Lastname
+    </div>
+        <div class="form-group">
+            <label>Email: </label>
+           @Model.Email
+        </div>
+
+    <div class="form-group">
+        <label>Country: </label>
+        @Model.Country
+    </div>
+
+    <div class="form-group">
+        <label>State : </label>
+        @Model.State
+    </div>
+
+    <div class="form-group">
+        <label>Yogam card Number : </label>
+        @Model.YogamCardNumber
+    </div>
+
+    <div class="form-group">
+        <label>Birth date : </label>
+        @Model.DateOfBirth
+    </div>
+
+
+
+    <div class="form-group">
+        <label>City : </label>
+        @Model.City
+    </div>
+
+    <div class="form-group">
+        <label>Nationality : </label>
+        @Model.Nationality
+    </div>
+
+
+    <div class="form-group">
+        <label>Identity Number : </label>
+        @Model.IdentityNumber
+    </div>
+
+    <div class="form-group">
+        <label>Living : </label>
+        @Model.Living
+    </div>
+       
+        @Html.ActionLink("Return to admin user", "Index", null, new { @class = "btn btn-default" })
+    
+</div>

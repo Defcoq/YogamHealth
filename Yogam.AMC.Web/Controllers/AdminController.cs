@@ -80,7 +80,19 @@ namespace Yogam.AMC.Web.Controllers
         }
 
 
-
+        [HttpGet]
+        public async Task<ActionResult> Read(string id)
+        {
+            ApplicationUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
         public async Task<ActionResult> Edit(string id)
         {
             ApplicationUser user = await UserManager.FindByIdAsync(id);
