@@ -40,5 +40,10 @@ namespace Yogam.AMC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult SanRaffaelle()
+        {
+            return View();
+        }
     }
 }

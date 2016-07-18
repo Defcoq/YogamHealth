@@ -477,6 +477,7 @@
     <Content Include="Views\UserProfile\Index.fr.cshtml" />
     <Content Include="Views\UserProfile\Edit.fr.cshtml" />
     <Content Include="Views\Admin\Read.cshtml" />
+    <Content Include="Views\Home\SanRaffaelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Order\" />
